@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import logo from "../images/logga.png";
 
 function Header() {
   return (
@@ -18,7 +17,7 @@ function Header() {
             </li>
           </ul>
         </nav>
-        <img src={logo} alt="Drone Delights logo" className="logo-center" />
+        <img src="/images/logga.png" alt="Logo" className="logo-center" />
       </div>
     </header>
   );
