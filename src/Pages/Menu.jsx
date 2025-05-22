@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ProductModal from "../Components/ProductModal";
 
 function Menu() {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("Alla");
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
     axios
@@ -43,7 +45,11 @@ function Menu() {
 
       <div className="menu-list">
         {filteredProducts.map((product) => (
-          <div key={product.id} className="menu-item">
+          <div
+            key={product.id}
+            className="menu-item"
+            onClick={() => setSelectedProduct(product)}
+          >
             <img
               src={`/images/${product.image}`}
               alt={product.name}
@@ -55,6 +61,12 @@ function Menu() {
           </div>
         ))}
       </div>
+
+      {/* Modal visas om något är valt */}
+      <ProductModal
+        product={selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+      />
     </div>
   );
 }
