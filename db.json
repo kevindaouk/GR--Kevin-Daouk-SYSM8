@@ -1,0 +1,101 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Räkpasta",
+      "description": "Krämig räkpasta stekt i chili och olja",
+      "category": "Huvudrätt",
+      "price": 149,
+      "image": "rakpasta.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Kycklingbulgur",
+      "description": "Stekt kyckling med bulgur och avokado, toppad med örtsås",
+      "category": "Huvudrätt",
+      "price": 129,
+      "image": "kycklingbulgur.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Ryggbiff",
+      "description": "Grillad ryggbiff med örtslungad potatis och chimmichurri",
+      "category": "Huvudrätt",
+      "price": 169,
+      "image": "ryggbiff.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Sushi",
+      "description": "3 laxnigiri, 3 tonfisknigiri, 3 laxrullar",
+      "category": "Huvudrätt",
+      "price": 129,
+      "image": "sushi.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Räksallad",
+      "description": "Räksallad med avokado och mango",
+      "category": "Förrätt",
+      "price": 59,
+      "image": "salladforratt.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Bruschetta",
+      "description": "Bruschetta med tomat och basilika",
+      "category": "Förrätt",
+      "price": 49,
+      "image": "bruschetta.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Baguette",
+      "description": "Baguette med skivad entrecote, sallad och tomat",
+      "category": "Huvudrätt",
+      "price": 119,
+      "image": "baguette.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Sallad",
+      "description": "Sallad med aubergine, valnötter, tomat och soltorkade tomater",
+      "category": "Förrätt",
+      "price": 59,
+      "image": "salladforratt.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Kycklingspett",
+      "description": "2 kycklingspett med ris och stekt sparris",
+      "category": "Huvudrätt",
+      "price": 119,
+      "image": "kycklingspett.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Cheesecake",
+      "description": "Cheesecake toppad med blåbär och hallon",
+      "category": "Efterrätt",
+      "price": 49,
+      "image": "cheesecake.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Äppelpaj",
+      "description": "Äppelpaj med vaniljglass",
+      "category": "Efterrätt",
+      "price": 39,
+      "image": "applepaj.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Jordgubbstårta",
+      "description": "Jordgubbstårta med grädde",
+      "category": "Efterrätt",
+      "price": 49,
+      "image": "jordgubbstarta.jpg"
+    }
+  ],
+  "orders": []
+}
