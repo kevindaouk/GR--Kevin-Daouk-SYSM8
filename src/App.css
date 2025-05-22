@@ -137,3 +137,33 @@
   object-fit: cover;
   border-radius: 4px;
 }
+
+.menu-description {
+  font-size: 0.9rem;
+  color: #555;
+  margin: 0.3rem 0;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #00aaff;
+  background-color: white;
+  color: #00aaff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.filter-button.active,
+.filter-button:hover {
+  background-color: #00aaff;
+  color: white;
+}
