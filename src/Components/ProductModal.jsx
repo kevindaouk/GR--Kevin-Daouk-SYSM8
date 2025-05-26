@@ -3,6 +3,7 @@ import axios from "axios";
 
 function ProductModal({ product, onClose }) {
   const [quantity, setQuantity] = useState(1);
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     setQuantity(1);
@@ -30,8 +31,11 @@ function ProductModal({ product, onClose }) {
 
     try {
       await axios.post("http://localhost:3001/orders", orderItem);
-      alert(`${quantity} x ${product.name} har lagts till i beställningen!`);
-      onClose();
+      setSuccessMessage("✔ Tillagd i beställningen!");
+      setTimeout(() => {
+        setSuccessMessage("");
+        onClose();
+      }, 1000);
     } catch (error) {
       console.error("Kunde inte lägga till i beställning:", error);
     }
@@ -63,6 +67,8 @@ function ProductModal({ product, onClose }) {
         <button className="add-button" onClick={handleAddToOrder}>
           Lägg till i beställningen ({product.price * quantity} kr)
         </button>
+
+        {successMessage && <p className="success-message">{successMessage}</p>}
       </div>
     </div>
   );
