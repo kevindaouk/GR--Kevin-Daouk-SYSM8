@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Räkpasta",
       "description": "Krämig räkpasta stekt i chili och olja",
       "category": "Huvudrätt",
@@ -9,7 +9,7 @@
       "image": "rakpasta.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Kycklingbulgur",
       "description": "Stekt kyckling med bulgur och avokado, toppad med örtsås",
       "category": "Huvudrätt",
@@ -17,7 +17,7 @@
       "image": "kycklingbulgur.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Ryggbiff",
       "description": "Grillad ryggbiff med örtslungad potatis och chimmichurri",
       "category": "Huvudrätt",
@@ -25,7 +25,7 @@
       "image": "ryggbiff.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Sushi",
       "description": "3 laxnigiri, 3 tonfisknigiri, 3 laxrullar",
       "category": "Huvudrätt",
@@ -33,7 +33,7 @@
       "image": "sushi.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Räksallad",
       "description": "Räksallad med avokado och mango",
       "category": "Förrätt",
@@ -41,7 +41,7 @@
       "image": "raksallad.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Bruschetta",
       "description": "Bruschetta med tomat och basilika",
       "category": "Förrätt",
@@ -49,7 +49,7 @@
       "image": "bruschetta.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Baguette",
       "description": "Baguette med skivad entrecote, sallad och tomat",
       "category": "Huvudrätt",
@@ -57,7 +57,7 @@
       "image": "baguette.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Sallad",
       "description": "Sallad med aubergine, valnötter, tomat och soltorkade tomater",
       "category": "Förrätt",
@@ -65,7 +65,7 @@
       "image": "salladforratt.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Kycklingspett",
       "description": "2 kycklingspett med ris och stekt sparris",
       "category": "Huvudrätt",
@@ -73,7 +73,7 @@
       "image": "kycklingspett.jpg"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Cheesecake",
       "description": "Cheesecake toppad med blåbär och hallon",
       "category": "Efterrätt",
@@ -81,7 +81,7 @@
       "image": "cheesecake.jpg"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Äppelpaj",
       "description": "Äppelpaj med vaniljglass",
       "category": "Efterrätt",
@@ -89,7 +89,7 @@
       "image": "applepaj.jpg"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Jordgubbstårta",
       "description": "Jordgubbstårta med grädde",
       "category": "Efterrätt",

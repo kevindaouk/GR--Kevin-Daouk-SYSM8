@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 function ProductModal({ product, onClose }) {
   const [quantity, setQuantity] = useState(1);
 
-  // Återställer kvantitet varje gång produkt ändras
   useEffect(() => {
     setQuantity(1);
   }, [product]);
@@ -18,9 +18,23 @@ function ProductModal({ product, onClose }) {
     setQuantity(quantity + 1);
   };
 
-  const handleAddToOrder = () => {
-    alert(`Lade till ${quantity} x ${product.name} i beställningen`);
-    onClose(); // återställer kvantitet via useEffect när man lägger till
+  const handleAddToOrder = async () => {
+    const orderItem = {
+      productId: product.id,
+      name: product.name,
+      quantity: quantity,
+      price: product.price,
+      total: product.price * quantity,
+      image: product.image,
+    };
+
+    try {
+      await axios.post("http://localhost:3001/orders", orderItem);
+      alert(`${quantity} x ${product.name} har lagts till i beställningen!`);
+      onClose();
+    } catch (error) {
+      console.error("Kunde inte lägga till i beställning:", error);
+    }
   };
 
   return (
