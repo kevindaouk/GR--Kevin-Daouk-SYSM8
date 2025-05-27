@@ -361,6 +361,13 @@
   }
 }
 
+.cart-error {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
+  text-align: center;
+}
+
 /*Checkout page CSS*/
 
 .checkout-page {

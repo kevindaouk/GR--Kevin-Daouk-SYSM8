@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Cart() {
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     fetchOrders();
@@ -61,6 +62,7 @@ function Cart() {
   return (
     <div className="cart-page">
       <h2>Varukorg</h2>
+      {errorMessage && <p className="cart-error">{errorMessage}</p>}
 
       <div className="cart-table">
         <div className="cart-header">
@@ -94,7 +96,15 @@ function Cart() {
             </button>
             <button
               className="checkout-button"
-              onClick={() => navigate("/checkout")}
+              onClick={() => {
+                if (orders.length === 0) {
+                  setErrorMessage(
+                    "Varukorgen är tom. Du måste lägga till något först."
+                  );
+                } else {
+                  navigate("/checkout");
+                }
+              }}
             >
               Betala
             </button>
