@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchOrders();
@@ -90,7 +92,12 @@ function Cart() {
             <button className="clear-button" onClick={handleClearCart}>
               Töm varukorg
             </button>
-            <button className="checkout-button">Betala</button>
+            <button
+              className="checkout-button"
+              onClick={() => navigate("/checkout")}
+            >
+              Betala
+            </button>
           </div>
         </div>
       </div>

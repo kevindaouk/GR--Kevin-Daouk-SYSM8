@@ -360,3 +360,31 @@
     transform: translateY(-10px);
   }
 }
+
+/*Checkout page CSS*/
+
+.checkout-page {
+  padding: 2rem;
+  text-align: center;
+}
+
+.payment-method {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.payment-method input {
+  margin-right: 0.5rem;
+}
+
+.confirm-button {
+  padding: 0.8rem 1.5rem;
+  background-color: #00aaff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
