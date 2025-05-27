@@ -5,6 +5,11 @@ import { useNavigate } from "react-router-dom";
 function Checkout() {
   const [orders, setOrders] = useState([]);
   const [paymentMethod, setPaymentMethod] = useState("Swish");
+  const [phone, setPhone] = useState("");
+  const [cardName, setCardName] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cvc, setCvc] = useState("");
+  const [expiry, setExpiry] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,9 +20,24 @@ function Checkout() {
 
   const totalAmount = orders.reduce((sum, item) => sum + item.total, 0);
 
+  const isValidPhone = phone.match(/^\d{10}$/);
+  const isValidName = cardName.match(/^[a-zA-ZåäöÅÄÖ\s]+$/);
+  const isValidCard = cardNumber.match(/^\d{16}$/);
+  const isValidCVC = cvc.match(/^\d{3}$/);
+  const isCardValid =
+    isValidName && isValidCard && isValidCVC && expiry.length > 0;
+
+  const isFormValid =
+    paymentMethod === "Swish"
+      ? isValidPhone
+      : paymentMethod === "Kort"
+      ? isCardValid
+      : false;
+
   const handleConfirm = () => {
-    // Här kan du lägga till POST till bekräftelser senare
-    navigate("/confirmation");
+    if (isFormValid) {
+      navigate("/confirmation");
+    }
   };
 
   return (
@@ -48,7 +68,59 @@ function Checkout() {
         </label>
       </div>
 
-      <button className="confirm-button" onClick={handleConfirm}>
+      {paymentMethod === "Swish" && (
+        <div className="swish-input">
+          <label>Telefonnummer (10 siffror)</label>
+          <input
+            type="text"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value.replace(/\D/g, ""))}
+            maxLength={10}
+          />
+        </div>
+      )}
+
+      {paymentMethod === "Kort" && (
+        <div className="card-inputs">
+          <label>Namn på kortet</label>
+          <input
+            type="text"
+            value={cardName}
+            onChange={(e) =>
+              setCardName(e.target.value.replace(/[^a-zA-ZåäöÅÄÖ\s]/g, ""))
+            }
+          />
+
+          <label>Kortnummer (16 siffror)</label>
+          <input
+            type="text"
+            value={cardNumber}
+            onChange={(e) => setCardNumber(e.target.value.replace(/\D/g, ""))}
+            maxLength={16}
+          />
+
+          <label>CVC (3 siffror)</label>
+          <input
+            type="text"
+            value={cvc}
+            onChange={(e) => setCvc(e.target.value.replace(/\D/g, ""))}
+            maxLength={3}
+          />
+
+          <label>Giltigt till (MM/ÅÅ)</label>
+          <input
+            type="month"
+            value={expiry}
+            onChange={(e) => setExpiry(e.target.value)}
+          />
+        </div>
+      )}
+
+      <button
+        className="confirm-button"
+        onClick={handleConfirm}
+        disabled={!isFormValid}
+      >
         Bekräfta beställning
       </button>
     </div>
