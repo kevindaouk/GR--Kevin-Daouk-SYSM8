@@ -35,9 +35,23 @@ function Checkout() {
       : false;
 
   const handleConfirm = () => {
-    if (isFormValid) {
-      navigate("/confirmation");
-    }
+    axios.get("http://localhost:3001/orders").then((res) => {
+      const deleteRequests = res.data.map((item) =>
+        axios.delete(`http://localhost:3001/orders/${item.id}`)
+      );
+
+      Promise.all(deleteRequests)
+        .then(() => {
+          const total = res.data.reduce((sum, item) => sum + item.total, 0);
+          const orderNum = Math.floor(10000 + Math.random() * 90000);
+
+          // Skicka med total + ordernummer till confirmationssidan
+          navigate("/confirmation", {
+            state: { total, orderNum },
+          });
+        })
+        .catch((err) => console.error("Kunde inte rensa beställning:", err));
+    });
   };
 
   return (

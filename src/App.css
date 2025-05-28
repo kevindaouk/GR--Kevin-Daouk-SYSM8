@@ -417,3 +417,26 @@
   background-color: #ccc;
   cursor: not-allowed;
 }
+
+/*Confirmation page*/
+
+.confirmation-page {
+  padding: 3rem;
+  text-align: center;
+}
+
+.confirmation-page h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.confirmation-page h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.confirmation-details p {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
