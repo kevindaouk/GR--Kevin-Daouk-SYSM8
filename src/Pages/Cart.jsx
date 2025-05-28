@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import CartItem from "../Components/CartItem";
 
 function Cart() {
   const [orders, setOrders] = useState([]);
@@ -72,20 +73,11 @@ function Cart() {
         </div>
 
         {orders.map((item) => (
-          <div key={item.id} className="cart-row">
-            <div className="cart-img-col">
-              <img src={`/images/${item.image}`} alt={item.name} />
-              <p className="cart-name">{item.name}</p>
-            </div>
-            <div className="cart-qty-col">
-              <button onClick={() => handleQuantityChange(item, -1)}>-</button>
-              <span>{item.quantity}</span>
-              <button onClick={() => handleQuantityChange(item, +1)}>+</button>
-            </div>
-            <div className="cart-price-col">
-              <strong>{item.price} kr</strong>
-            </div>
-          </div>
+          <CartItem
+            key={item.id}
+            item={item}
+            onQuantityChange={handleQuantityChange}
+          />
         ))}
 
         <div className="cart-footer">
