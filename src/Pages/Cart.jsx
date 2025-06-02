@@ -4,14 +4,17 @@ import { useNavigate } from "react-router-dom";
 import CartItem from "../Components/CartItem";
 
 function Cart() {
+  // State för att spara alla beställningar (orders)
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
 
+  // Körs vid sidladdning – hämtar order-data från backend
   useEffect(() => {
     fetchOrders();
   }, []);
 
+  // Hämtar alla beställningar från json-server
   const fetchOrders = () => {
     axios
       .get("http://localhost:3001/orders")
@@ -23,6 +26,7 @@ function Cart() {
       });
   };
 
+  // Ökar eller minskar kvantitet – eller tar bort om 0
   const handleQuantityChange = (item, change) => {
     const newQuantity = item.quantity + change;
 
@@ -35,6 +39,7 @@ function Cart() {
       return;
     }
 
+    // Uppdaterar kvantitet och totalpris
     const updatedItem = {
       ...item,
       quantity: newQuantity,
@@ -47,6 +52,7 @@ function Cart() {
       .catch((err) => console.error("Kunde inte uppdatera produkt:", err));
   };
 
+  // Tar bort alla beställningar från varukorgen
   const handleClearCart = () => {
     // Ta bort alla ordrar en i taget
     const deleteRequests = orders.map((item) =>
@@ -58,6 +64,7 @@ function Cart() {
       .catch((err) => console.error("Kunde inte rensa varukorgen:", err));
   };
 
+  // Räknar ihop totalbeloppet
   const totalAmount = orders.reduce((sum, item) => sum + item.total, 0);
 
   return (

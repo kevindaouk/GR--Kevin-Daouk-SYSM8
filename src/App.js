@@ -1,3 +1,4 @@
+// Importerar React Router-komponenter och sidor
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import Home from "./Pages/Home";
@@ -9,7 +10,9 @@ import "./App.css";
 
 function App() {
   return (
+    // Innesluter hela appen i en Router så att sidnavigering fungerar
     <Router>
+      {/* Header visas på alla sidor */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

@@ -1,3 +1,4 @@
+// En komponent som visar en enskild maträtt i menylistan
 function DishCard({ name, description, price, image, onAdd }) {
   return (
     <div className="dish-card">

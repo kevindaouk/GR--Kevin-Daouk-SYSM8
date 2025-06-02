@@ -1,24 +1,30 @@
+// Importerar React hooks och axios för API-anrop
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+// Visar en popup/modal med info om en vald maträtt
 function ProductModal({ product, onClose }) {
   const [quantity, setQuantity] = useState(1);
   const [successMessage, setSuccessMessage] = useState("");
 
+  // När man öppnar en ny maträtt, nollställs kvantitet till 1
   useEffect(() => {
     setQuantity(1);
   }, [product]);
 
   if (!product) return null;
 
+  // Sänker kvantitet (inte lägre än 1)
   const handleDecrease = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
 
+  // Ökar kvantitet
   const handleIncrease = () => {
     setQuantity(quantity + 1);
   };
 
+  // Lägger till maträtten i beställning (POST till json-server)
   const handleAddToOrder = async () => {
     const orderItem = {
       productId: product.id,

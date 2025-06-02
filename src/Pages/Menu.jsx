@@ -5,6 +5,7 @@ import ProductModal from "../Components/ProductModal";
 function Menu() {
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("Alla");
+  // Sparar vald maträtt (för att öppna modal)
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
@@ -18,11 +19,13 @@ function Menu() {
       });
   }, []);
 
+  // Filtrerar produkter baserat på vald kategori
   const filteredProducts =
     filter === "Alla"
       ? products
       : products.filter((product) => product.category === filter);
 
+  // Uppdaterar valt filter (t.ex. från knapparna)
   const handleFilterChange = (category) => {
     setFilter(category);
   };

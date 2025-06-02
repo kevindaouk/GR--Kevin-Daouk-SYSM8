@@ -1,5 +1,7 @@
+// Importerar Link-komponenten från React Router för att navigera mellan sidor utan omladdning
 import { Link } from "react-router-dom";
 
+// Header-komponenten visas överst på alla sidor och innehåller navigeringsmeny + logga
 function Header() {
   return (
     <header className="main-header">

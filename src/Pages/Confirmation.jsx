@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 
 function Confirmation() {
+  // Hämtar skickad data (totalbelopp + ordernummer)
   const location = useLocation();
   const { total, orderNum } = location.state || {};
 

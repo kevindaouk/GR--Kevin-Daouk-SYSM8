@@ -3,7 +3,10 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Checkout() {
+  // State för lagrade ordrar
   const [orders, setOrders] = useState([]);
+
+  // Betalningsuppgifter
   const [paymentMethod, setPaymentMethod] = useState("Swish");
   const [phone, setPhone] = useState("");
   const [cardName, setCardName] = useState("");
@@ -12,6 +15,7 @@ function Checkout() {
   const [expiry, setExpiry] = useState("");
   const navigate = useNavigate();
 
+  // Hämtar ordrar när sidan laddas
   useEffect(() => {
     axios.get("http://localhost:3001/orders").then((res) => {
       setOrders(res.data);
@@ -20,6 +24,7 @@ function Checkout() {
 
   const totalAmount = orders.reduce((sum, item) => sum + item.total, 0);
 
+  // Validerar input beroende på betalningsmetod
   const isValidPhone = phone.match(/^\d{10}$/);
   const isValidName = cardName.match(/^[a-zA-ZåäöÅÄÖ\s]+$/);
   const isValidCard = cardNumber.match(/^\d{16}$/);
@@ -27,6 +32,7 @@ function Checkout() {
   const isCardValid =
     isValidName && isValidCard && isValidCVC && expiry.length > 0;
 
+  // Slutgiltig validering beroende på metod
   const isFormValid =
     paymentMethod === "Swish"
       ? isValidPhone
@@ -34,12 +40,16 @@ function Checkout() {
       ? isCardValid
       : false;
 
+  // När man klickar "Bekräfta beställning"
   const handleConfirm = () => {
+    // Hämtar alla orders igen (för säkerhet)
     axios.get("http://localhost:3001/orders").then((res) => {
+      // Skapar DELETE-anrop för varje beställning
       const deleteRequests = res.data.map((item) =>
         axios.delete(`http://localhost:3001/orders/${item.id}`)
       );
 
+      // När alla ordrar raderats
       Promise.all(deleteRequests)
         .then(() => {
           const total = res.data.reduce((sum, item) => sum + item.total, 0);
